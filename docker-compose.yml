@@ -11,7 +11,7 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     ports:
-      - "5432:5432"
+      - "15432:5432"  # Host:Container to avoid conflict with local Postgres
 
   web:
     build:
@@ -29,7 +29,7 @@ services:
       DB_NAME: test
       DB_USER: admin
       DB_PASSWORD: admin
-      DB_HOST: localhost
+      DB_HOST: db        # <-- fixed this
       DB_PORT: 5432
     depends_on:
       - db
