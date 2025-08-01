@@ -10,18 +10,18 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     gcc \
-    python3.12-venv \
+    python3-venv \
     && apt-get clean
 
-# Create virtual environment in standard location
+# Create virtual environment
 RUN python3 -m venv /opt/venv
 
-# Use the virtual environment
+# Use virtual environment
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Install Python packages inside virtualenv
+# Install Python dependencies
 COPY requirements.txt /app/
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the Django project into the container
+# Copy project files
 COPY . /app/
