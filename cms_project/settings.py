@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5%+q0*1nm@s5whq@exc8l#u&i+y6ge+ilf6qsciy#-96xfk5-s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'cms_project.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'dj_db_conn_pool.backends.postgresql',
+    'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'test',                      
     'USER': 'admin',
     'PASSWORD': 'admin',
-    'HOST': 'localhost',
+    'HOST': 'cms_db ',
     'PORT': '5432',
     }
     
